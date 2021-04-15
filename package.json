@@ -2,15 +2,15 @@
   "name": "slogfox",
   "version": "1.0.0",
   "description": "Website",
-  "main": "server.js",
+  "main": "index.js",
+  "private": true,
   "scripts": {
-    "start": "node server.js"
+    "start": "node index.js"
   },
-  "keywords": [],
   "author": "Bala Manikanta Koorakula",
   "license": "MIT",
   "dependencies": {
-    "@sendgrid/mail": "^7.4.2",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1"
   },
   "engines": {
