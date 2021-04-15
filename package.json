@@ -1,7 +1,7 @@
 {
   "name": "slogfox",
   "version": "1.0.0",
-  "description": "Website",
+  "description": "Static Website",
   "main": "index.js",
   "private": true,
   "scripts": {
