@@ -283,7 +283,50 @@
     })
   });
 
-})()
+})();
+
+
+function displayMessage(message,messagetype) {
+  $('.loading').removeClass('d-block');
+
+  if(messagetype == "0")
+  {
+    $('.error-message').innerHTML = message;
+    $('.error-message').addClass('d-block');
+  }
+  else{
+    $('.sent-message').addClass('d-block');
+  }
+}
+
+$("#btnContact").click(function(e){
+ e.preventDefault();
+ $('.loading').removeClass('d-block');
+  var formData = {
+                    name: $("#name").val() ,
+                    email: $("#email").val() , 
+                    subject: $("#subject").val(),
+                    message: $("#message").val()
+                 }; //Array 
+  $.ajax({
+      url : "/api/contact",
+      type: "POST",
+      data : JSON.stringify(formData),
+      contentType: "application/json",
+      success: function(data, textStatus, jqXHR)
+      {
+         alert(data.message);
+        
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+        $('.sent-message').removeClass('d-block');
+        $('.error-message').addClass('d-block');
+        alert("Server Busy, Please try again later.");
+      }
+  });
+
+});
 
 
 

@@ -3,10 +3,17 @@ var path = require('path');
 var indexRoutes = require('./routes/indexRoutes');
 
 var app = express();
-app.use(express.urlencoded({extended: true})); 
-app.use(express.json());   
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
+
+// Parse URL-encoded bodies (as sent by HTML forms)
+app.use(express.urlencoded({
+    extended: true
+}));
+
+// Parse JSON bodies (as sent by API clients)
+app.use(express.json());
+
 
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
