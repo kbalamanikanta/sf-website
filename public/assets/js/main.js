@@ -113,10 +113,20 @@
    * Mobile nav toggle
    */
   on('click', '.mobile-nav-toggle', function(e) {
-    select('body').classList.toggle('mobile-nav-active')
-    this.classList.toggle('bi-list')
-    this.classList.toggle('bi-x')
+    select('#navbar').classList.toggle('navbar-mobile')
+    this.classList.toggle('bx-menu')
+    this.classList.toggle('bx-x')
   })
+  
+    /**
+   * Mobile nav dropdowns activate
+   */
+  on('click', '.navbar .dropdown > a', function(e) {
+    if (select('#navbar').classList.contains('navbar-mobile')) {
+      e.preventDefault()
+      this.nextElementSibling.classList.toggle('dropdown-active')
+    }
+  }, true)
 
   /**
    * Scrool with ofset on links with a class name .scrollto
@@ -327,6 +337,3 @@ $("#btnContact").click(function(e){
   });
 
 });
-
-
-
